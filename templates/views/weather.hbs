@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>headerlinks}}
+</head>
+
+<body>
+
+    {{!-- Navigation part --}}
+    {{>navbar}}
+
+    <!-- main header  -->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="main_content">
+                    <form class="temp_form">
+                        <input type="text" id="cityName" placeholder="Enter the City Name" autocomplete="off">
+                        <input type="submit" value="search" id="submitBtn">
+                    </form>
+                </div>
+
+                <div class="tempInformation">
+                    <div class="top_layer">
+                        <p id="day">Monday</p>
+                        <p id="today_date">28 <span class="today_month"> Nov</span></p>
+                        
+                    </div>
+                    <div class="main_layer">
+                        <p id="city_name">Get the Output Here</p>
+                        <div class="middle_layer data_hide">
+                            <p id = 'temp'><span id="temp_real_val">0</span> <sup>o</sup>C</p>
+                            <div id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Code -->
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+    <script>
+        // Get Current days
+        const getCurrentDay = ()=>{
+            let weekdays = new Array(7);
+            weekdays[0] = 'Sunday';
+            weekdays[1] = 'Monday';
+            weekdays[2] = 'Tuesday';
+            weekdays[3] = 'Wednesday';
+            weekdays[4] = 'Thursday';
+            weekdays[5] = 'Friday';
+            weekdays[6] = 'Saturday';
+
+            let currentTime = new Date();
+            days = weekdays[currentTime.getDay()];
+            let day = document.getElementById('day');
+            day.innerText = days;
+        }
+        getCurrentDay();
+
+        /*
+        // Get current date
+        const getCurrentTime = ()=>{
+          
+            let now = new Date();
+            console.log(now);
+            let month = now.getMonth();
+            month_name = mon[month];
+            let date = now.getDate();
+
+            let today_date = document.getElementById('today_date');
+            let today_month = document.getElementById('today_month');
+
+            today_date.innerText = month_name;
+            //today_month.innerText = month;
+
+            console.log(month)
+
+           {{!-- let mon = new mon(12);
+           mon[0] = 'Jan';
+           mon[1] = 'Feb';
+           mon[2] = 'Mar';
+           mon[3] = 'Apr';
+           mon[4] = 'May';
+           mon[5] = 'Jun';
+           mon[6] = 'July';
+           mon[7] = 'Aug';
+           mon[8] = 'Sep';
+           mon[9] = 'Oct';
+           mon[10] = 'Nov';
+           mon[11] = 'Dec'; 
+        } --}}
+
+        getCurrentTime();
+
+        */
+        var DateDict = {       // dictionary in javascript
+            0:"Jan",
+            1:"Feb",
+            2:"Mar",
+            3:"Apr",
+            4:"May",
+            5:"June",
+            6:"July",
+            7:"Aug",
+            8:"Sep",
+            9:"Oct",
+            10:"Nov",
+            11:"Dec",
+        }
+
+        const getCurrentTime = ()=> {
+            
+        let now = new Date();
+
+        let today_date = now.getDate();
+        console.log(today_date);
+        let month_number = now.getMonth();
+        let month_name = DateDict[month_number];
+        console.log(month_name);
+
+        let today_dates = document.getElementById('today_date');
+        //today_dates.innerHTML =  today_date;
+
+        let today_month_name = document.getElementById('today_month');
+        //today_month_name.innerHTML = month_name;
+        //console.log(month_name);
+
+
+
+
+
+        }
+
+        getCurrentTime();
+
+
+    </script>
+</body>
+
+</html>
